@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EnableJpaRepositories
-//@EnableCaching
+@EnableCaching
 public class LmsappApplication {
 
 	public static void main(String[] args) {

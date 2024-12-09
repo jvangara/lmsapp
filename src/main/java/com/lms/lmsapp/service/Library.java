@@ -7,6 +7,7 @@ import com.lms.lmsapp.exceptions.BookCopiesNotAvailableException;
 import com.lms.lmsapp.model.Book;
 import com.lms.lmsapp.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -65,7 +66,6 @@ public class Library {
     }
 
     //Returns a list of books by a given author
-    //TODO cache on which key?
     public List<Book> findBooksByAuthor(String author) {
         readWriteLock.readLock().lock();
         try {
@@ -113,5 +113,6 @@ public class Library {
             readWriteLock.writeLock().unlock();
         }
     }
+
 
 }
